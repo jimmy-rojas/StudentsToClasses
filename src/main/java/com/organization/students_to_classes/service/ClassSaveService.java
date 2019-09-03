@@ -1,5 +1,6 @@
 package com.organization.students_to_classes.service;
 
+import com.organization.students_to_classes.exceptions.NotFoundException;
 import com.organization.students_to_classes.persistence.IClassRepository;
 import com.organization.students_to_classes.service.model.ClassBase;
 import com.organization.students_to_classes.service.model.ClassWithId;
@@ -21,11 +22,11 @@ public class ClassSaveService {
     return this.classRepository.save(classBase);
   }
 
-  public ClassWithId update(Integer classId, ClassBase classBase) {
+  public ClassWithId update(Integer classId, ClassBase classBase) throws NotFoundException {
     return this.classRepository.update(classId, classBase);
   }
 
-  public void delete(Integer classId) {
+  public void delete(Integer classId) throws NotFoundException {
     this.classRepository.delete(classId);
   }
 }

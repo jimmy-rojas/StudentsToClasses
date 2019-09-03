@@ -1,5 +1,6 @@
 package com.organization.students_to_classes.controller;
 
+import com.organization.students_to_classes.exceptions.NotFoundException;
 import com.organization.students_to_classes.service.AssignmentsService;
 import com.organization.students_to_classes.service.model.ClassStudent;
 import com.organization.students_to_classes.service.model.StudentClass;
@@ -29,7 +30,7 @@ public class AssignmentsController {
   }
 
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{studentId}")
-  public StudentClass getStudentClasses(@PathVariable Integer studentId) {
+  public StudentClass getStudentClasses(@PathVariable Integer studentId) throws NotFoundException {
     return this.assignmentsService.getStudentClasses(studentId);
   }
 
@@ -39,7 +40,7 @@ public class AssignmentsController {
   }
 
   @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{classId}")
-  public ClassStudent getClassStudents(@PathVariable Integer classId) {
+  public ClassStudent getClassStudents(@PathVariable Integer classId) throws NotFoundException {
     return this.assignmentsService.getClassStudents(classId);
   }
 }

@@ -1,5 +1,6 @@
 package com.organization.students_to_classes.persistence;
 
+import com.organization.students_to_classes.exceptions.NotFoundException;
 import com.organization.students_to_classes.service.model.ClassStudent;
 import com.organization.students_to_classes.service.model.StudentClass;
 import java.util.ArrayList;
@@ -12,8 +13,11 @@ import org.springframework.stereotype.Repository;
 public class AssignmentsRepository extends MockStorage implements IAssignmentsRepository {
 
   @Override
-  public ClassStudent getClassStudents(Integer classId) {
-    return null;
+  public ClassStudent getClassStudents(Integer classId) throws NotFoundException {
+    if (!super.classStudentMap.containsKey(classId)) {
+      throw new NotFoundException("unable to find Class");
+    }
+    return super.classStudentMap.get(classId);
   }
 
   @Override
@@ -22,8 +26,11 @@ public class AssignmentsRepository extends MockStorage implements IAssignmentsRe
   }
 
   @Override
-  public StudentClass getStudentClasses(Integer studentId) {
-    return null;
+  public StudentClass getStudentClasses(Integer studentId) throws NotFoundException {
+    if (!super.studentClassMap.containsKey(studentId)) {
+      throw new NotFoundException("unable to find Student");
+    }
+    return super.studentClassMap.get(studentId);
   }
 
   @Override

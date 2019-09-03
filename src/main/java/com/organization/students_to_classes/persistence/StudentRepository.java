@@ -1,6 +1,8 @@
 package com.organization.students_to_classes.persistence;
 
+import com.organization.students_to_classes.exceptions.NotFoundException;
 import com.organization.students_to_classes.service.model.StudentBase;
+import com.organization.students_to_classes.service.model.StudentClass;
 import com.organization.students_to_classes.service.model.StudentWithId;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,16 +20,30 @@ public class StudentRepository extends MockStorage implements IStudentRepository
 
   @Override
   public StudentWithId save(StudentBase student) {
-    return null;
+    int newId = super.counterStudent.incrementAndGet();
+    StudentWithId studentWithId = new StudentWithId(student.getFirstName(), student.getLastName(), newId);
+    super.studentMap.put(newId, studentWithId);
+    StudentClass studentClass = new StudentClass(studentWithId, new ArrayList<>());
+    super.studentClassMap.put(newId, studentClass);
+    return studentWithId;
   }
 
   @Override
-  public StudentWithId update(Integer studentId, StudentBase student) {
-    return null;
+  public StudentWithId update(Integer studentId, StudentBase student) throws NotFoundException {
+    if (!super.studentMap.containsKey(studentId)) {
+      throw new NotFoundException("unable to find student");
+    }
+    StudentWithId studentWithId = super.studentMap.get(studentId);
+    studentWithId.setFirstName(student.getFirstName());
+    studentWithId.setLastName(student.getLastName());
+    return studentWithId;
   }
 
   @Override
-  public void delete(Integer studentId) {
-
+  public void delete(Integer studentId) throws NotFoundException {
+    if (!super.studentMap.containsKey(studentId)) {
+      throw new NotFoundException("unable to find student");
+    }
+    super.studentMap.remove(studentId);
   }
 }

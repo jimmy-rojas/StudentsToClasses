@@ -2,6 +2,7 @@ package com.organization.students_to_classes.controller;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
+import com.organization.students_to_classes.exceptions.NotFoundException;
 import com.organization.students_to_classes.service.StudentSaveService;
 import com.organization.students_to_classes.service.model.StudentWithId;
 import com.organization.students_to_classes.service.model.StudentBase;
@@ -41,12 +42,13 @@ public class StudentController {
   }
 
   @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{studentId}")
-  public StudentWithId updateStudent(@PathVariable Integer studentId, @RequestBody StudentBase student) {
+  public StudentWithId updateStudent(@PathVariable Integer studentId, @RequestBody StudentBase student)
+      throws NotFoundException {
     return this.studentSaveService.update(studentId, student);
   }
 
   @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{studentId}")
-  public ResponseEntity deleteStudent(@PathVariable Integer studentId) {
+  public ResponseEntity deleteStudent(@PathVariable Integer studentId) throws NotFoundException {
     this.studentSaveService.delete(studentId);
     return new ResponseEntity(HttpStatus.OK);
   }

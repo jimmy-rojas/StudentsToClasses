@@ -1,5 +1,6 @@
 package com.organization.students_to_classes.service;
 
+import com.organization.students_to_classes.exceptions.NotFoundException;
 import com.organization.students_to_classes.persistence.IAssignmentsRepository;
 import com.organization.students_to_classes.service.model.ClassStudent;
 import com.organization.students_to_classes.service.model.StudentClass;
@@ -17,7 +18,7 @@ public class AssignmentsService {
     return this.assignmentsRepository.getAllStudents();
   }
 
-  public StudentClass getStudentClasses(Integer studentId) {
+  public StudentClass getStudentClasses(Integer studentId) throws NotFoundException {
     return this.assignmentsRepository.getStudentClasses(studentId);
   }
 
@@ -25,7 +26,7 @@ public class AssignmentsService {
     return this.assignmentsRepository.getAllClasses();
   }
 
-  public ClassStudent getClassStudents(Integer classId) {
+  public ClassStudent getClassStudents(Integer classId) throws NotFoundException {
     return this.assignmentsRepository.getClassStudents(classId);
   }
 }
