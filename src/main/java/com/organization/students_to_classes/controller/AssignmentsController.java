@@ -29,7 +29,7 @@ public class AssignmentsController {
     return this.assignmentsService.getAllStudents();
   }
 
-  @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{studentId}")
+  @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/student/{studentId}")
   public StudentClass getStudentClasses(@PathVariable Integer studentId) throws NotFoundException {
     return this.assignmentsService.getStudentClasses(studentId);
   }
@@ -39,7 +39,7 @@ public class AssignmentsController {
     return this.assignmentsService.getAllClasses();
   }
 
-  @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{classId}")
+  @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/class/{classId}")
   public ClassStudent getClassStudents(@PathVariable Integer classId) throws NotFoundException {
     return this.assignmentsService.getClassStudents(classId);
   }
