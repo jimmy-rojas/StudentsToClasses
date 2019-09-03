@@ -1,23 +1,13 @@
 package com.organization.students_to_classes.service.model;
 
-public class Student {
+public class StudentBase {
 
-  private Integer studentId;
   private String firstName;
   private String lastName;
 
-  public Student(Integer studentId, String firstName, String lastName) {
-    this.studentId = studentId;
+  public StudentBase(String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
-  }
-
-  public Integer getStudentId() {
-    return studentId;
-  }
-
-  public void setStudentId(Integer studentId) {
-    this.studentId = studentId;
   }
 
   public String getFirstName() {
