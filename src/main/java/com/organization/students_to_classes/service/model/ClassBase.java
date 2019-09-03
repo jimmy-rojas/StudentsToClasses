@@ -1,12 +1,12 @@
 package com.organization.students_to_classes.service.model;
 
-public class Class {
+public class ClassBase {
 
   private String code;
   private String title;
   private String description;
 
-  public Class(String code, String title, String description) {
+  public ClassBase(String code, String title, String description) {
     this.code = code;
     this.title = title;
     this.description = description;

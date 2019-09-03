@@ -4,29 +4,29 @@ import java.util.List;
 
 public class ClassStudent {
 
-  private String code;
-  private List<Student> studentList;
+  private ClassWithId classWithId;
+  private List<StudentWithId> studentList;
 
-  public ClassStudent(String code,
-      List<Student> studentList) {
-    this.code = code;
+  public ClassStudent(ClassWithId classWithId,
+      List<StudentWithId> studentList) {
+    this.classWithId = classWithId;
     this.studentList = studentList;
   }
 
-  public String getCode() {
-    return code;
+  public ClassWithId getClassWithId() {
+    return classWithId;
   }
 
-  public void setCode(String code) {
-    this.code = code;
+  public void setClassWithId(ClassWithId classWithId) {
+    this.classWithId = classWithId;
   }
 
-  public List<Student> getStudentList() {
+  public List<StudentWithId> getStudentList() {
     return studentList;
   }
 
   public void setStudentList(
-      List<Student> studentList) {
+      List<StudentWithId> studentList) {
     this.studentList = studentList;
   }
 }
