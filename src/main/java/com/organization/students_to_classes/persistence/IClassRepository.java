@@ -11,7 +11,7 @@ public interface IClassRepository {
 
   ClassWithId save(ClassBase classBase);
 
-  ClassWithId update(Integer classId, ClassBase classBase) throws NotFoundException;
+  ClassWithId update(int classId, ClassBase classBase) throws NotFoundException;
 
-  void delete(Integer classId) throws NotFoundException;
+  void delete(int classId) throws NotFoundException;
 }

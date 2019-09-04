@@ -11,14 +11,18 @@ import org.springframework.stereotype.Service;
 @Service
 public class AssignmentsService {
 
-  @Autowired
   private IAssignmentsRepository assignmentsRepository;
+
+  @Autowired
+  public AssignmentsService(IAssignmentsRepository assignmentsRepository) {
+    this.assignmentsRepository = assignmentsRepository;
+  }
 
   public List<StudentClass> getAllStudents() {
     return this.assignmentsRepository.getAllStudents();
   }
 
-  public StudentClass getStudentClasses(Integer studentId) throws NotFoundException {
+  public StudentClass getStudentClasses(int studentId) throws NotFoundException {
     return this.assignmentsRepository.getStudentClasses(studentId);
   }
 
@@ -26,7 +30,7 @@ public class AssignmentsService {
     return this.assignmentsRepository.getAllClasses();
   }
 
-  public ClassStudent getClassStudents(Integer classId) throws NotFoundException {
+  public ClassStudent getClassStudents(int classId) throws NotFoundException {
     return this.assignmentsRepository.getClassStudents(classId);
   }
 }

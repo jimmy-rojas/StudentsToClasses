@@ -2,18 +2,18 @@ package com.organization.students_to_classes.service.model;
 
 public class StudentWithId extends StudentBase {
 
-  private Integer studentId;
+  private int studentId;
 
-  public StudentWithId(String firstName, String lastName, Integer studentId) {
+  public StudentWithId(String firstName, String lastName, int studentId) {
     super(firstName, lastName);
     this.studentId = studentId;
   }
 
-  public Integer getStudentId() {
+  public int getStudentId() {
     return studentId;
   }
 
-  public void setStudentId(Integer studentId) {
+  public void setStudentId(int studentId) {
     this.studentId = studentId;
   }
 

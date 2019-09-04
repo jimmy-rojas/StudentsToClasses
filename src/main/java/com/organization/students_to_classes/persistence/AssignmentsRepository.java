@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 public class AssignmentsRepository extends MockStorage implements IAssignmentsRepository {
 
   @Override
-  public ClassStudent getClassStudents(Integer classId) throws NotFoundException {
+  public ClassStudent getClassStudents(int classId) throws NotFoundException {
     if (!super.classStudentMap.containsKey(classId)) {
       throw new NotFoundException("unable to find Class");
     }
@@ -26,7 +26,7 @@ public class AssignmentsRepository extends MockStorage implements IAssignmentsRe
   }
 
   @Override
-  public StudentClass getStudentClasses(Integer studentId) throws NotFoundException {
+  public StudentClass getStudentClasses(int studentId) throws NotFoundException {
     if (!super.studentClassMap.containsKey(studentId)) {
       throw new NotFoundException("unable to find Student");
     }

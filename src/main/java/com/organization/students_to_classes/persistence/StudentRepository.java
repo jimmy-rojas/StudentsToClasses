@@ -29,7 +29,7 @@ public class StudentRepository extends MockStorage implements IStudentRepository
   }
 
   @Override
-  public StudentWithId update(Integer studentId, StudentBase student) throws NotFoundException {
+  public StudentWithId update(int studentId, StudentBase student) throws NotFoundException {
     if (!super.studentMap.containsKey(studentId)) {
       throw new NotFoundException("unable to find student");
     }
@@ -40,7 +40,7 @@ public class StudentRepository extends MockStorage implements IStudentRepository
   }
 
   @Override
-  public void delete(Integer studentId) throws NotFoundException {
+  public void delete(int studentId) throws NotFoundException {
     if (!super.studentMap.containsKey(studentId)) {
       throw new NotFoundException("unable to find student");
     }

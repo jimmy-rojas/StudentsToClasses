@@ -11,7 +11,7 @@ public interface IStudentRepository {
 
   StudentWithId save(StudentBase student);
 
-  StudentWithId update(Integer studentId, StudentBase student) throws NotFoundException;
+  StudentWithId update(int studentId, StudentBase student) throws NotFoundException;
 
-  void delete(Integer studentId) throws NotFoundException;
+  void delete(int studentId) throws NotFoundException;
 }

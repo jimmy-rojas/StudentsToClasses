@@ -11,8 +11,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentSaveService {
 
-  @Autowired
   private IStudentRepository studentRepository;
+
+  @Autowired
+  public StudentSaveService(IStudentRepository studentRepository) {
+    this.studentRepository = studentRepository;
+  }
 
   public List<StudentWithId> getAll() {
     return this.studentRepository.getAll();
@@ -22,11 +26,11 @@ public class StudentSaveService {
     return this.studentRepository.save(student);
   }
 
-  public StudentWithId update(Integer studentId, StudentBase student) throws NotFoundException {
+  public StudentWithId update(int studentId, StudentBase student) throws NotFoundException {
     return this.studentRepository.update(studentId, student);
   }
 
-  public void delete(Integer studentId) throws NotFoundException {
+  public void delete(int studentId) throws NotFoundException {
     this.studentRepository.delete(studentId);
   }
 }

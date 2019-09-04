@@ -42,13 +42,13 @@ public class ClassController {
   }
 
   @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{classId}")
-  public ClassWithId updateStudent(@PathVariable Integer classId, @RequestBody ClassBase classBase)
+  public ClassWithId updateStudent(@PathVariable int classId, @RequestBody ClassBase classBase)
       throws NotFoundException {
     return this.classSaveService.update(classId, classBase);
   }
 
   @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE, path = "/{classId}")
-  public ResponseEntity deleteStudent(@PathVariable Integer classId) throws NotFoundException {
+  public ResponseEntity deleteStudent(@PathVariable int classId) throws NotFoundException {
     this.classSaveService.delete(classId);
     return new ResponseEntity(HttpStatus.OK);
   }

@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface IAssignmentsRepository {
 
-  ClassStudent getClassStudents(Integer classId) throws NotFoundException;
+  ClassStudent getClassStudents(int classId) throws NotFoundException;
 
   List<ClassStudent> getAllClasses();
 
-  StudentClass getStudentClasses(Integer studentId) throws NotFoundException;
+  StudentClass getStudentClasses(int studentId) throws NotFoundException;
 
   List<StudentClass> getAllStudents();
 }
