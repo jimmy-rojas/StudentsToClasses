@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * AssignmentsController exposes all endpoints related to Assignments for Students and Classes
+ *
+ */
 @RestController
 @RequestMapping("v1/assignments")
 public class AssignmentsController {

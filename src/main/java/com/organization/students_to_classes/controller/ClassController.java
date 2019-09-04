@@ -19,6 +19,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * ClassController exposes all endpoints related to Classes
+ *
+ */
 @RestController
 @RequestMapping("v1/class")
 public class ClassController {

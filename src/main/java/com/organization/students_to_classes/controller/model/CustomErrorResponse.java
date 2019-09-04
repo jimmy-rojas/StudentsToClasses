@@ -1,4 +1,4 @@
-package com.organization.students_to_classes.controller;
+package com.organization.students_to_classes.controller.model;
 
 public class CustomErrorResponse {
 

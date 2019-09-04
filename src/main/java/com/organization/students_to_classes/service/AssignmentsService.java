@@ -8,6 +8,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * AssignmentsService is a service class to manage assignments for Students and Classes
+ *
+ */
 @Service
 public class AssignmentsService {
 
